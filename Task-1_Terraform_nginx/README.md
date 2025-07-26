@@ -3,6 +3,7 @@
 terraform init
 
 terraform plan -var-file="terraform.tfvars"
+
 terraform apply -var-file="terraform.tfvars"
 
 # After Apply
@@ -10,4 +11,5 @@ terraform apply -var-file="terraform.tfvars"
 Outputs:
 
 public_ip = "public ip will be displayed"
+
 web_url   = "web url will be displayed"
