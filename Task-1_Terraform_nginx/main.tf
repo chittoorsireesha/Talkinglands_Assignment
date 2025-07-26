@@ -17,10 +17,10 @@ resource "aws_instance" "nginx_server" {
 
 resource "aws_security_group" "nginx_sg" {
   name        = "${var.environment}-nginx-sg"
-  description = "Allow HTTP and SSH"
+  description = "Allow HTTP and SSH access"
 
   ingress {
-    description = "HTTP"
+    description = "Allow HTTP"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -28,7 +28,7 @@ resource "aws_security_group" "nginx_sg" {
   }
 
   ingress {
-    description = "SSH"
+    description = "Allow SSH"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
