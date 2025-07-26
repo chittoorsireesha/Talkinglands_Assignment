@@ -50,6 +50,13 @@ jobs:
         kubectl apply -f k8s/
         kubectl rollout status deployment/nodejs-app
 
+     - name: Verify Deployment
+        run: |
+          sleep 10
+          STATUS=$(kubectl rollout status deployment/node-app --timeout=60s)
+          echo "$STATUS"
+        continue-on-error: true   
+
     - name: Rollback if deployment fails
       if: failure()
       run: |
